@@ -1,0 +1,72 @@
+:root {
+    --start-color: black;
+    --end-color: rgba(1, 1, 53, 0.897);
+}
+
+body {
+    display: block;
+    background-size: 100% 100%;
+    justify-content: center;
+    margin-left: 550px;
+    min-height: auto;
+    background-image: linear-gradient(to top left,
+            var(--start-color),
+            var(--end-color));
+}
+
+article {
+    position: relative;
+    justify-content: center;
+    width: 800px;
+    min-height: auto;
+    transition: all .3s ease;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    filter: brightness(0.7);
+}
+
+article img:first-child {
+    box-shadow: 0 60px 60px -60px rgba(16, 41, 233, 0.637);
+    border-radius: 4px;
+    object-fit: cover;
+    width: 100%;
+}
+
+article:hover img:first-child {
+    transform: perspective(1500px) rotateX(10deg) translateY(-10%) translateZ(0);
+    filter: blur(5px);
+    background-image: linear-gradient(rgb(0, 0, 0), rgb(1, 2, 17));
+    box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.692);
+    /* ajustar colores del gradiente */
+}
+
+article:hover img:last-child {
+    transform: translateY(0%);
+    opacity: 1;
+}
+
+article img:last-child {
+    position: absolute;
+    width: 500px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transform: translateY(25%) perspective(1000px) rotateX(20deg);
+    transition: .3s ease;
+    opacity: 0;
+}
+
+article::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-image: linear-gradient(to bottom, transparent 10%, rgba(0, 0, 0, 0.692) 50%, rgb(0, 0, 0)) 95%;
+    opacity: 0;
+    transition: all .3 ease;
+}
+
+article:hover::before {
+    opacity: 1;
+}
